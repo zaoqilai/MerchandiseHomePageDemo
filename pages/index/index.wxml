@@ -1,0 +1,69 @@
+<view class="page-container">
+    <swiper indicator-dots="true" autoplay="true" class="top-swiper" circular="true" interval="4000">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item >
+                <image src="{{item}}" class="slide-image" mode="aspectFill" bindtap="imageClick" data-url="{{item}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="btn-area">
+        <view wx:for="{{btnInfo}}" class="btn-item">
+            <image src="{{item.url}}" mode="aspectFill" class="btn-image"> </image>
+            <text class="btn-text" style="overflow：hidden">{{item.title}}</text>
+        </view>
+    </view>
+    <view class="schoolStreet">
+        <text class="street-title">校园二手街</text>
+        <scroll-view scroll-x="true"  class="street-scrollView"  style="width: 100%" >
+            <view wx:for="{{streetInfo}}" class="street-item">
+                <image src="{{item.url}}" class="school-backgroundImage" mode="aspectFill" bindtap="goToStreet" data-url="{{item.url}}"></image>
+                <view class="street-school-info">
+                    <text>南京工业大学</text>
+                    <text>发布数107   昨日人气</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+
+    <view class="merchandise">
+        <text class="merchandise-rent">出租商品
+        </text>
+        <view class="merchandise-solicit">
+        求租商品打打阿达按时啊大叔啊大叔打打按时打算打打十大大十大撒大声地按时打算打算阿达
+        </view>
+    </view>
+
+    <view class="merchandise-section">
+        <text class="merchandise-section-title"> 商品专区</text>
+        <scroll-view scroll-y="true" class="merchandise-scrollView" scroll-top="0" bindscrolltolower="lower">
+            <block wx:for="{{merchandiseInfo}}">
+                <view class="merchandise-item">
+                   <view class="merchandise-item-top">
+                    <view class="portrait"></view>
+                    <view class="userName">我是昵称</view>
+                    <view class="price">$23.45</view>
+                   </view>
+                   <view class="merchandise-item-pictures" wx:if="{{item.picNumber==3}}">
+                    <view class="picture"></view>
+                    <view class="picture"></view>
+                    <view class="picture"></view>
+                   </view>
+                   <view class="merchandise-item-picture" wx:if="{{item.picNumber==1}}">
+                     <view class="picture"></view>
+                   </view>
+                   <view class="merchandiseDesc">
+                     这是商品的描述
+                   </view>
+                   <view class="merchandise-item-bottom">
+                       <view class="schoolName">这里应该是学校的名字叭叭叭啊叭叭                            </view>
+                       <view class="merchandiseSigntures">
+                        <view  wx:for="{{item.signture}}" class="merchandise-signture">{{item}}</view>
+                       </view>
+                    </view>
+                    <view >
+                   </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+</view>
